@@ -6,12 +6,15 @@ def all(x: list[int], y: int) -> bool:  # function that has two parameters: a li
     """Tests if the list is only made up of the integer."""
     i: int = 0  # initialized to zero
     length: int = len(x)  # length of the list
-    while i < length:
-        if x[i] != y:  # tests to see if list at the given index is equal the integer
-            return False  # returns false if one match is wrong
-        else: 
-            i = i + 1
-    return True  # returns true if all numbers match
+    if length == 0:
+        return False
+    else:
+        while i < length:
+            if x[i] != y:  # tests to see if list at the given index is equal the integer
+                return False  # returns false if one match is wrong
+            else: 
+                i = i + 1
+        return True  # returns true if all numbers match
 
 
 def max(input: list[int]) -> int:
@@ -40,4 +43,3 @@ def is_equal(x: list[int], y: list[int]) -> bool:
     else:
         return False
     return True
-
