@@ -2,19 +2,16 @@
 __author__: str = "730575619"
 
 
-import pytest
-
-
 def invert(dictionary: dict[str, str]) -> dict[str, str]:
     """Inverts a dictionary."""
-    if dictionary =={}:  # If an empty dictionary is given, it returns an empty dictionary.
+    if dictionary == {}:  # If an empty dictionary is given, it returns an empty dictionary.
         return {}
     result: dict[str, str] = {}
     for key in dictionary:  # Iterates through dictionary to assigns the values as the key to the results dictionary.
         if dictionary[key] in result:
             raise KeyError("KeyError. Dictionary has multiple keys with the same value.")  # Raises a keyerror if multiple similar values exist
         else:
-         result[dictionary[key]] = key
+            result[dictionary[key]] = key
     return result
 
 
@@ -28,15 +25,17 @@ def favorite_color(dictionary: dict[str, str]) -> str:
             count[dictionary[key]] += 1
         else:
             count[dictionary[key]] = 1
-    result_two: dict[str, str] = {}
-    for key in count:
-        result_two[count[key]] = key
-    greatest_number: int = 0  # Stores the number value  of greatest occurence
-    for key in result_two:
-        if key > greatest_number:
-            greatest_number = key
-    return result_two[greatest_number]  # Returns the color
-
+    new_list: list[str] = []
+    stored_num: int = 0
+    for key in count:  # Iterates through and ensures that the color with the highest value is stored in new_list.
+        if stored_num == 0:
+            new_list.append(key)
+            stored_num += count[key]
+        else: 
+            if count[key] > stored_num:
+                new_list[0] = key
+                stored_num = count[key]
+    return new_list[0]  # Returns the color
 
 
 def count(list_one: list[str]) -> dict[str, int]:
@@ -50,9 +49,3 @@ def count(list_one: list[str]) -> dict[str, int]:
         else:
             count_two[item] = 1
     return count_two
-
-
-
-
-
-
