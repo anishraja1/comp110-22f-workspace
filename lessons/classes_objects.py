@@ -40,9 +40,9 @@ class Pizza:
 
 
 a_pizza: Pizza = Pizza("large", 3)
-a_pizza.size = "large"
-a_pizza.toppings = 3
-a_pizza.extra_cheese = False
+# a_pizza.size = "large"
+# a_pizza.toppings = 3
+# a_pizza.extra_cheese = False
 
 # print(a_pizza)
 # print(a_pizza.size)
